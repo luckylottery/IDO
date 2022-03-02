@@ -1,24 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ConnecttionItems from "./connection";
 // import { useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { ContentContext } from "../context/PoolContext";
 
 export const IdoBoxRadius = styled.div``;
 
-// interface Ido {
-//   title: string;
-//   avatar: string;
-//   price: string;
-//   islive: boolean;
-//   detail: string;
-//   totalsize: number;
-//   starts: string;
-//   price1: string;
-// }
-
 const p1 = {
-  title: "jdlandacping",
+  title: "asdfasdf",
   avatar: "joe",
   price: "$30",
   islive: true,
@@ -29,8 +19,8 @@ const p1 = {
 };
 
 const p2 = {
-  title: "jdlandacping",
-  avatar: "joe",
+  title: "ertwret",
+  avatar: "alex",
   price: "$30",
   islive: true,
   detail: "asdf",
@@ -40,8 +30,8 @@ const p2 = {
 };
 
 const p3 = {
-  title: "jdlandacping",
-  avatar: "joe",
+  title: "zxvcxczv",
+  avatar: "maxim",
   price: "$30",
   islive: true,
   detail: "asdf",
@@ -50,94 +40,29 @@ const p3 = {
   price1: "asdf",
 };
 
-const p4 = {
-  title: "jdlandacping",
-  avatar: "joe",
-  price: "$30",
-  islive: true,
-  detail: "asdf",
-  totalsize: 300,
-  starts: "asdf",
-  price1: "asdf",
-};
+export const IdoItems = [p1, p2, p3];
 
-const p5 = {
-  title: "jdlandacping",
-  avatar: "joe",
-  price: "$30",
-  islive: true,
-  detail: "asdf",
-  totalsize: 300,
-  starts: "asdf",
-  price1: "asdf",
-};
-const p6 = {
-  title: "jdlandacping",
-  avatar: "joe",
-  price: "$30",
-  islive: true,
-  detail: "asdf",
-  totalsize: 300,
-  starts: "asdf",
-  price1: "asdf",
-};
-const p7 = {
-  title: "jdlandacping",
-  avatar: "joe",
-  price: "$30",
-  islive: true,
-  detail: "asdf",
-  totalsize: 300,
-  starts: "asdf",
-  price1: "asdf",
-};
-const p8 = {
-  title: "jdlandacping",
-  avatar: "joe",
-  price: "$30",
-  islive: true,
-  detail: "asdf",
-  totalsize: 300,
-  starts: "asdf",
-  price1: "asdf",
-};
-const p9 = {
-  title: "jdlandacping",
-  avatar: "joe",
-  price: "$30",
-  islive: true,
-  detail: "asdf",
-  totalsize: 300,
-  starts: "asdf",
-  price1: "asdf",
-};
+export const IdoCard = (props) => {
 
-export const IdoItems = [p1, p2, p3, p4, p5, p6, p7, p8, p9];
+  const {content, setContentIndex} = useContext(ContentContext);
 
-export const IdoCard = (
-  title,
-  avatar,
-  price,
-  islive,
-  detail,
-  totalsize,
-  starts,
-  price1
-) => {
-  // const history = useNavigate();
+  const SetContent = () => {
+    setContentIndex(1);
+    console.log(content);
+  }
+
   return (
     <>
-      {" "}
       <Link to="/pool">
-        <div className="w-400 h-fit border-2 border-green4 rounded-2xl bg-gray1 bg-opacity-50 p-40">
+        <div onClick={SetContent} className="w-400 h-fit border-2 border-green4 rounded-2xl bg-gray1 bg-opacity-50 p-40">
           <div className="flex flex-col">
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <p className="text-18 text-green4 flex justify-start">
-                  Xxertyoi
+                  {props.title}
                 </p>
                 <div className="text-14 text-white flex justify-start opacity-50">
-                  $XXX
+                  ${props.avatar}
                 </div>
               </div>
               <div className="w-100 h-100 border-2 border-green4 rounded-full bg-gray1 relative left-15 bottom-15"></div>
@@ -162,7 +87,7 @@ export const IdoCard = (
             </div>
             <div className="flex justify-between items-end pt-20">
               <p className="text-white text-20 font-medium">Total Rasie</p>
-              <p className="text-green1 text-25 font-medium">$200 000</p>
+              <p className="text-green1 text-25 font-medium">{props.price}</p>
             </div>
             <div className="flex justify-between items-end pt-10">
               <p className="text-white text-20 font-medium">Starts</p>

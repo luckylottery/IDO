@@ -17,7 +17,7 @@ class MyRouts extends React.Component {
     return (
       <div>
         <MainLayout>
-          <Router>
+          <Router forceRefresh={true}>
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/pool" component={PoolPage} />
